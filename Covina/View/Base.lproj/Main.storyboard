@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ejL-8j-plJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t5U-EF-THh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,37 +11,26 @@
         <!--Find Hospital-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FindHospitalsController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="8Le-mS-CDZ">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Province" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nY9-Oe-wN1">
-                                <rect key="frame" x="20" y="185" width="169" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OX9-bk-xuu">
-                                <rect key="frame" x="0.0" y="222" width="414" height="640"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B8S-nz-OGx">
+                                <rect key="frame" x="41" y="501" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="fO9-0O-Hnx"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="yI0-gb-kL3"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.80392156862745101" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OX9-bk-xuu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2MK-WE-m6M"/>
                             <constraint firstItem="8Le-mS-CDZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5aH-bD-83H"/>
-                            <constraint firstItem="nY9-Oe-wN1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="45" id="80F-jD-Lqn"/>
-                            <constraint firstItem="nY9-Oe-wN1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="BKm-Vd-Qu3"/>
-                            <constraint firstItem="OX9-bk-xuu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HU9-3P-TXL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nY9-Oe-wN1" secondAttribute="trailing" symbolic="YES" id="Qdg-FP-Zqr"/>
                             <constraint firstItem="8Le-mS-CDZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="RHw-ea-LcR"/>
-                            <constraint firstItem="OX9-bk-xuu" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-34" id="WhW-Oq-2eC"/>
-                            <constraint firstItem="OX9-bk-xuu" firstAttribute="top" secondItem="nY9-Oe-wN1" secondAttribute="bottom" constant="8" id="rbe-qN-hyK"/>
                             <constraint firstItem="8Le-mS-CDZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="suj-XY-Vq9"/>
                             <constraint firstItem="8Le-mS-CDZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="v2T-Af-b79"/>
                         </constraints>
@@ -49,13 +39,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1868.1159420289857" y="88.392857142857139"/>
+            <point key="canvasLocation" x="2778.2608695652175" y="88.392857142857139"/>
         </scene>
-        <!-- -->
+        <!--Navigation Controller-->
         <scene sceneID="zUQ-oe-AmA">
             <objects>
-                <navigationController title=" " automaticallyAdjustsScrollViewInsets="NO" id="ejL-8j-plJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bOP-cY-K3F"/>
+                <navigationController storyboardIdentifier="Hospitals" automaticallyAdjustsScrollViewInsets="NO" id="ejL-8j-plJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="Hospital Tab Button" id="bOP-cY-K3F"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="wY1-V0-Yoc">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -75,10 +65,69 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2aO-MF-t4n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1868.1159420289857" y="88.392857142857139"/>
+        </scene>
+        <!--Today View Controller-->
+        <scene sceneID="Vt1-wb-aZO">
+            <objects>
+                <viewController id="bIk-IY-Gju" customClass="TodayViewController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jzt-KL-8R1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="AGr-hE-YB5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="Today Tab Button" id="plg-RG-iv2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MCo-5F-3cR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="272" y="920"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fue-G3-h9R">
+            <objects>
+                <viewController id="4BM-Ao-ZDl" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rAe-DL-9Lu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="bFm-ma-9Hh"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="More Tab Button" id="HcE-XA-tft"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s03-X3-UHe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1906" y="805"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ENm-Q5-DRZ">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="t5U-EF-THh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="HpA-PQ-7jT">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="Main Accent"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bIk-IY-Gju" kind="relationship" relationship="viewControllers" id="2KY-TL-Yxq"/>
+                        <segue destination="ejL-8j-plJ" kind="relationship" relationship="viewControllers" id="mkK-PW-woq"/>
+                        <segue destination="4BM-Ao-ZDl" kind="relationship" relationship="viewControllers" id="cHr-Oi-dAg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W0J-k7-HZK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="957.97101449275374" y="88.392857142857139"/>
         </scene>
     </scenes>
     <resources>
         <image name="Background" width="375" height="589"/>
+        <image name="Hospital Tab Button" width="49" height="50"/>
+        <image name="More Tab Button" width="49" height="50"/>
+        <image name="Today Tab Button" width="49" height="50"/>
+        <namedColor name="Main Accent">
+            <color red="0.0" green="0.46274509803921571" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

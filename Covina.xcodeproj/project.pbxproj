@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		2D3F417526A91C3F00AF599C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F417426A91C3F00AF599C /* AppDelegate.swift */; };
 		2D3F417726A91C3F00AF599C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F417626A91C3F00AF599C /* SceneDelegate.swift */; };
-		2D3F417926A91C3F00AF599C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F417826A91C3F00AF599C /* ViewController.swift */; };
+		2D3F417926A91C3F00AF599C /* FindHospitalsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F417826A91C3F00AF599C /* FindHospitalsController.swift */; };
 		2D3F417C26A91C3F00AF599C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F417A26A91C3F00AF599C /* Main.storyboard */; };
 		2D3F418126A91C4100AF599C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F417F26A91C4100AF599C /* LaunchScreen.storyboard */; };
 		2D3F41CA26A96E6B00AF599C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F41C926A96E6B00AF599C /* Assets.xcassets */; };
+		2D3F421326A9DC0800AF599C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F421226A9DC0800AF599C /* TodayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2D3F417126A91C3F00AF599C /* Covina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D3F417426A91C3F00AF599C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D3F417626A91C3F00AF599C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2D3F417826A91C3F00AF599C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2D3F417826A91C3F00AF599C /* FindHospitalsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindHospitalsController.swift; sourceTree = "<group>"; };
 		2D3F417B26A91C3F00AF599C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D3F418026A91C4100AF599C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2D3F418226A91C4100AF599C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D3F41C926A96E6B00AF599C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../../../../../../Downloads/AppIcons/Assets.xcassets; sourceTree = "<group>"; };
+		2D3F421226A9DC0800AF599C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 		2D3F41CE26A97AF900AF599C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2D3F417826A91C3F00AF599C /* ViewController.swift */,
+				2D3F417826A91C3F00AF599C /* FindHospitalsController.swift */,
+				2D3F421226A9DC0800AF599C /* TodayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,7 +164,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D3F417926A91C3F00AF599C /* ViewController.swift in Sources */,
+				2D3F421326A9DC0800AF599C /* TodayViewController.swift in Sources */,
+				2D3F417926A91C3F00AF599C /* FindHospitalsController.swift in Sources */,
 				2D3F417526A91C3F00AF599C /* AppDelegate.swift in Sources */,
 				2D3F417726A91C3F00AF599C /* SceneDelegate.swift in Sources */,
 			);
