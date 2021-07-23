@@ -12,22 +12,9 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		// Customize the tab bar controller
-		let border = self.tabBarController?.tabBar.layer
-		border?.borderWidth = 1.2
-		border?.borderColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+		
 
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-
-		// show dis
-		guard let viewControllers = self.tabBarController?.viewControllers else { return }
-		if viewControllers.indices.contains(1) {
-			self.tabBarController?.selectedIndex = 1
-		}
-	}
-
 
     /*
     // MARK: - Navigation
