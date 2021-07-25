@@ -19,6 +19,7 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		super.viewDidLoad()
 		
 		provincesTableView.dataSource = self
+		provincesTableView.delegate = self
 		provincesTableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customTableViewCell")
 		
 		provincesTableView.alwaysBounceVertical = false
@@ -30,7 +31,7 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 	
 	override func viewDidAppear(_ animated: Bool) {
 		getProvince()
-		provinceTableViewHeight.constant = CGFloat((Double(provinces.count) * 116.0) + 8)
+		provinceTableViewHeight.constant = CGFloat((Double(provinces.count) * 124.0) + 8)
 	}
 	
 	func customizeTabbar(for thisTabBar: UITabBarController) {
@@ -86,23 +87,29 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell", for: indexPath) as? CustomTableViewCell {
-			
 			let province = provinces[indexPath.row]
-			if let image = UIImage(named: "Location Pin") {
+			cell.locationLabel.text = province.name
+			if let image = UIImage(named: province.name) {
 				cell.locationImage.image = image
-				cell.locationLabel.text = province.name
-				cell.layer.masksToBounds = true
+			} else {
+				cell.locationImage.image = UIImage(named: "Location Pin")!
 			}
-			
-			cell.layer.cornerRadius = 15
 			return cell
 		} else {
 			return UITableViewCell()
 		}
 	}
 	
-
-	
-	
+	// MARK: - UITableViewDelegate Methods
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+		print("clicked")
+		
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let selectProvinceView = storyboard.instantiateViewController(withIdentifier: "selectProvinceViewController")
+		
+		
+		self.navigationController?.pushViewController(selectProvinceView, animated: true)
+	}
 }
 
