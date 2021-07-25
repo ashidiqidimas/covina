@@ -108,7 +108,6 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let selectProvinceView = storyboard.instantiateViewController(withIdentifier: "selectProvinceViewController")
 		
-		
 		self.navigationController?.pushViewController(selectProvinceView, animated: true)
 	}
 }

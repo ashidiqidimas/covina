@@ -9,11 +9,23 @@ import UIKit
 
 class SelectProvinceViewController: UIViewController {
 
-    override func viewDidLoad() {
+	@IBOutlet weak var provinceTableViewHeight: NSLayoutConstraint!
+	
+	override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		self.navigationItem.title = "nama provinsi"
+		
+//		self.navigationController?.navigationBar.prefersLargeTitles = false
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		provinceTableViewHeight.constant = CGFloat(10)
+	}
 
 
     /*

@@ -97,9 +97,11 @@
                         <color key="backgroundColor" red="0.80392156862745101" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" name="SubColor"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -169,7 +171,6 @@
         <!--Find Hospital-->
         <scene sceneID="CAY-ea-L3d">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LbX-47-RIh" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="selectProvinceViewController" id="XbK-VX-Jp2" customClass="SelectProvinceViewController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YR5-eC-yRN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -232,15 +233,14 @@
                             <constraint firstItem="QDM-Br-Cqe" firstAttribute="trailing" secondItem="bce-Md-tvQ" secondAttribute="trailing" id="hsh-QT-ppC"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Find Hospital" largeTitleDisplayMode="always" id="nyL-j9-ueO"/>
+                    <navigationItem key="navigationItem" title="Find Hospital" largeTitleDisplayMode="never" id="nyL-j9-ueO"/>
                     <connections>
-                        <outlet property="provinceTableViewHeight" destination="c3Q-91-Dtr" id="Bli-fF-QrY"/>
-                        <outlet property="provincesTableView" destination="0NU-pO-PK6" id="sio-xB-ePa"/>
-                        <outlet property="scrollView" destination="QDM-Br-Cqe" id="gHh-u3-1EM"/>
+                        <outlet property="provinceTableViewHeight" destination="c3Q-91-Dtr" id="FjO-5Y-0KI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LbX-47-RIh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3712" y="88"/>
+            <point key="canvasLocation" x="3688" y="88"/>
         </scene>
     </scenes>
     <resources>
