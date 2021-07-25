@@ -7,16 +7,102 @@
 
 import UIKit
 
-class FindHospitalsViewController: UIViewController {
-
+class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+	
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var provincesTableView: UITableView!
+	@IBOutlet weak var provinceTableViewHeight: NSLayoutConstraint!
+	
+	var provinces = [Province]()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		// Customize the tab bar controller
-		let border = self.tabBarController?.tabBar.layer
-		border?.borderWidth = 1.2
-		border?.borderColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+		provincesTableView.dataSource = self
+		provincesTableView.register(UINib(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "customTableViewCell")
+		
+		provincesTableView.alwaysBounceVertical = false
+		addRefreshControl(to: scrollView)
+		if let thisTabBar = self.tabBarController {
+			customizeTabbar(for: thisTabBar)
+		}
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		getProvince()
+		provinceTableViewHeight.constant = CGFloat((Double(provinces.count) * 116.0) + 8)
+	}
+	
+	func customizeTabbar(for thisTabBar: UITabBarController) {
+		let border = thisTabBar.tabBar.layer
+		border.borderWidth = 1.2
+		border.borderColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+	}
+	
+	func addRefreshControl(to scrollView: UIScrollView) {
+		scrollView.refreshControl = UIRefreshControl()
+		scrollView.refreshControl?.addTarget(self, action: #selector(didScrollToRefresh), for: .valueChanged)
+	}
+	
+	@objc func didScrollToRefresh() {
+		// Update your content…
+		getProvince()
+//		print(provinces)
+		
+		
+		// Dismiss the refresh control.
+		DispatchQueue.main.async {
+			self.scrollView.refreshControl?.endRefreshing()
+		}
+	}
+
+	// MARK: - Fetching Data
+	func parseProvinces(json: Data) {
+		let decoder = JSONDecoder()
+		
+		if let jsonProvinces = try? decoder.decode(Provinces.self, from: json) {
+			provinces = jsonProvinces.provinces
+			provinces.sort{$0.name < $1.name}
+//			print(provinces.count)
+		}
+	}
+	
+	func getProvince() {
+		let urlString = "https://rs-bed-covid-api.vercel.app/api/get-provinces"
+		
+		if let url = URL(string: urlString) {
+			if let data = try? Data(contentsOf: url) {
+				parseProvinces(json: data)
+				provincesTableView.reloadData()
+			}
+		}
+	}
+	
+	// MARK: - UITableDataSourse Methods
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return provinces.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell", for: indexPath) as? CustomTableViewCell {
+			
+			let province = provinces[indexPath.row]
+			if let image = UIImage(named: "Location Pin") {
+				cell.locationImage.image = image
+				cell.locationLabel.text = province.name
+				cell.layer.masksToBounds = true
+			}
+			
+			cell.layer.cornerRadius = 15
+			return cell
+		} else {
+			return UITableViewCell()
+		}
+	}
+	
+
+	
 	
 }
 
