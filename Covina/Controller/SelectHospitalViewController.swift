@@ -34,7 +34,6 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	
 	override func viewDidAppear(_ animated: Bool) {
 		getHospitals()
-		print("b")
 		if hospitals.count > 7 {
 			hospitalsTableViewHeight.constant = CGFloat((Double(hospitals.count) * 124.0) + 8)
 		}
@@ -57,12 +56,10 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	// MARK: - Fetching Data
 	func parseHospitals(json: Data) {
 		let decoder = JSONDecoder()
-		print("z")
 		
 		if let jsonHospitals = try? decoder.decode(Hospitals.self, from: json) {
 			hospitals = jsonHospitals.hospitals
 			hospitals.sort{$0.name < $1.name}
-			print("aaaa")
 		}
 	}
 	
@@ -72,8 +69,7 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 			if let data = try? Data(contentsOf: url) {
 				parseHospitals(json: data)
 				hospitalsTableView.reloadData()
-				print("hospitals: ", hospitals)
-				print(url)
+
 			}
 		}
 	}
@@ -109,19 +105,20 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	}
 	
 	// MARK: - UITableViewDelegate Methods
-//	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//		print("clicked")
-//
-//		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//		let selectHospitalView = storyboard.instantiateViewController(withIdentifier: "selectHospitalViewController") as? SelectHospitalViewController
-//
-//		//		let province = provinces[indexPath.row]
-//		//		selectProvinceView?.provinceName = province.name
-//		//		selectProvinceView?.provinceId = province.id
-//
-//		self.navigationController?.pushViewController(selectHospitalView!, animated: true) // TODO: - nanti ubah ke error page
-//		print("udah")
-//	}
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let selectedHospital = storyboard.instantiateViewController(withIdentifier: "hospitalDetailsViewController") as? HospitalDetailsViewController
+
+		//		let province = provinces[indexPath.row]
+		//		selectProvinceView?.provinceName = province.name
+		//		selectProvinceView?.provinceId = province.id
+
+		let hospital = hospitals[indexPath.row]
+		selectedHospital?.hospitalId = hospital.id
+		selectedHospital?.hospitalName = hospital.name
+		
+		self.navigationController?.pushViewController(selectedHospital!, animated: true) // TODO: - nanti ubah ke error page
+	}
 
 }
