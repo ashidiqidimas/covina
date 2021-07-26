@@ -27,6 +27,7 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		if let thisTabBar = self.tabBarController {
 			customizeTabbar(for: thisTabBar)
 		}
+		self.navigationController?.navigationBar.shadowImage = UIImage()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +39,10 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		let border = thisTabBar.tabBar.layer
 		border.borderWidth = 1.2
 		border.borderColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+	}
+	
+	func customizeNavbar() {
+		
 	}
 	
 	func addRefreshControl(to scrollView: UIScrollView) {

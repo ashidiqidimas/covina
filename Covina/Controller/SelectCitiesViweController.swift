@@ -28,13 +28,15 @@ class SelectCitiesViweController: UIViewController, UITableViewDataSource, UITab
 		citiesTableView.alwaysBounceVertical = false
 		citiesTableView.allowsSelection = true
 		
+		self.navigationItem.title = provinceName
 		addRefreshControl(to: scrollView)
+		navigationController?.navigationBar.layer.borderWidth = 0
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		getCities()
 		citiesTableViewHeight.constant = CGFloat((Double(cities.count) * 124.0) + 8)
-		self.navigationItem.title = provinceName
+		
 	}
 	
 	func addRefreshControl(to scrollView: UIScrollView) {
