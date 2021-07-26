@@ -11,7 +11,8 @@ class HospitalTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var hospitalImage: UIImageView!
 	@IBOutlet weak var hospitalNameLabel: UILabel!
-	@IBOutlet weak var availableBedLabel: UIImageView!
+	@IBOutlet weak var availableBedLabel: UILabel!
+	@IBOutlet weak var lastUpdated: UILabel!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()

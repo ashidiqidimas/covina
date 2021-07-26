@@ -24,6 +24,8 @@
 		2D3F422D26AE66F500AF599C /* SelectHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422C26AE66F500AF599C /* SelectHospitalViewController.swift */; };
 		2D3F423026AE8AF900AF599C /* HospitalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422E26AE8AF900AF599C /* HospitalTableViewCell.swift */; };
 		2D3F423126AE8AF900AF599C /* HospitalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F422F26AE8AF900AF599C /* HospitalTableViewCell.xib */; };
+		2D3F423326AE900100AF599C /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F423226AE900100AF599C /* Hospital.swift */; };
+		2D3F423526AE909000AF599C /* Hospitals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F423426AE909000AF599C /* Hospitals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		2D3F422C26AE66F500AF599C /* SelectHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHospitalViewController.swift; sourceTree = "<group>"; };
 		2D3F422E26AE8AF900AF599C /* HospitalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalTableViewCell.swift; sourceTree = "<group>"; };
 		2D3F422F26AE8AF900AF599C /* HospitalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalTableViewCell.xib; sourceTree = "<group>"; };
+		2D3F423226AE900100AF599C /* Hospital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
+		2D3F423426AE909000AF599C /* Hospitals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hospitals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,8 @@
 				2D3F421726AAD56B00AF599C /* Provinces.swift */,
 				2D3F422026AD87C200AF599C /* Cities.swift */,
 				2D3F422A26AE564900AF599C /* City.swift */,
+				2D3F423226AE900100AF599C /* Hospital.swift */,
+				2D3F423426AE909000AF599C /* Hospitals.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,11 +211,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D3F422126AD87C200AF599C /* Cities.swift in Sources */,
+				2D3F423326AE900100AF599C /* Hospital.swift in Sources */,
 				2D3F421326A9DC0800AF599C /* TodayViewController.swift in Sources */,
 				2D3F421826AAD56B00AF599C /* Provinces.swift in Sources */,
 				2D3F417926A91C3F00AF599C /* FindHospitalsViewController.swift in Sources */,
 				2D3F421E26AD847700AF599C /* CustomTableViewCell.swift in Sources */,
 				2D3F423026AE8AF900AF599C /* HospitalTableViewCell.swift in Sources */,
+				2D3F423526AE909000AF599C /* Hospitals.swift in Sources */,
 				2D3F422826ADD97B00AF599C /* SelectCitiesViweController.swift in Sources */,
 				2D3F422B26AE564900AF599C /* City.swift in Sources */,
 				2D3F417526A91C3F00AF599C /* AppDelegate.swift in Sources */,

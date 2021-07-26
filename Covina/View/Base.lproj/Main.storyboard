@@ -320,10 +320,10 @@
             </objects>
             <point key="canvasLocation" x="4591" y="88"/>
         </scene>
-        <!--selectHospitalViewController-->
+        <!--HospitalDetail-->
         <scene sceneID="1M2-bN-JjK">
             <objects>
-                <viewController id="zc4-mO-Gh6" userLabel="selectHospitalViewController" sceneMemberID="viewController">
+                <viewController id="zc4-mO-Gh6" userLabel="HospitalDetail" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4o2-9S-pXh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

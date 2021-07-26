@@ -13,9 +13,10 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var hospitalsTableViewHeight: NSLayoutConstraint!
 	
-	var cities = [City]()
-	var cityName = ""
+	var hospitals = [Hospital]()
 	var provinceId = ""
+	var cityName = ""
+	var cityId = ""
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -27,15 +28,14 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 		hospitalsTableView.alwaysBounceVertical = false
 		hospitalsTableView.allowsSelection = true
 		
-		self.navigationItem.title = provinceName
+		self.navigationItem.title = cityName
 		addRefreshControl(to: scrollView)
-		navigationController?.navigationBar.layer.borderWidth = 0
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
-		getCities()
-		hospitalsTableViewHeight.constant = CGFloat((Double(cities.count) * 124.0) + 8)
-		
+		getHospitals()
+		print("b")
+		hospitalsTableViewHeight.constant = CGFloat((Double(hospitals.count) * 124.0) + 8)
 	}
 	
 	func addRefreshControl(to scrollView: UIScrollView) {
@@ -45,7 +45,7 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	
 	@objc func didScrollToRefresh() {
 		// Update your content…
-		getCities()
+		getHospitals()
 
 		DispatchQueue.main.async {
 			self.scrollView.refreshControl?.endRefreshing()
@@ -53,39 +53,53 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	}
 	
 	// MARK: - Fetching Data
-	func parseCities(json: Data) {
+	func parseHospitals(json: Data) {
 		let decoder = JSONDecoder()
+		print("z")
 		
-		if let jsonCities = try? decoder.decode(Cities.self, from: json) {
-			cities = jsonCities.cities
-			cities.sort{$0.name < $1.name}
+		if let jsonHospitals = try? decoder.decode(Hospitals.self, from: json) {
+			hospitals = jsonHospitals.hospitals
+			hospitals.sort{$0.name < $1.name}
+			print("aaaa")
 		}
 	}
 	
-	func getCities() {
-		let urlString = "https://rs-bed-covid-api.vercel.app/api/get-cities?provinceid=\(provinceId)"
+	func getHospitals() {
+		let urlString = "https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=\(provinceId)&cityid=\(cityId)&type=1"
 		if let url = URL(string: urlString) {
 			if let data = try? Data(contentsOf: url) {
-				parseCities(json: data)
+				parseHospitals(json: data)
 				hospitalsTableView.reloadData()
-				print(cities)
-				//				print(urlString)
+				print("hospitals: ", hospitals)
+				print(url)
 			}
 		}
 	}
 	
 	// MARK: - UITableViewDataSource
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		cities.count
+		hospitals.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if let cell = tableView.dequeueReusableCell(withIdentifier: "customTableViewCell", for: indexPath) as? CustomTableViewCell {
-			let city = cities[indexPath.row]
-			cell.locationLabel.text = city.name
+		if let cell = tableView.dequeueReusableCell(withIdentifier: "hospitalTableViewCell", for: indexPath) as? HospitalTableViewCell {
+			
+			let hospital = hospitals[indexPath.row]
+			cell.availableBedLabel.text = "Bed Availability: \(hospital.bed_availability)"
+			cell.hospitalNameLabel.text = hospital.name
+			cell.lastUpdated.text = hospital.info
 			if let image = UIImage(named: "Hospital") {
-				cell.locationImage.image = image
+				cell.hospitalImage.image = image
 			}
+			
+			if hospital.bed_availability == 0 {
+				cell.availableBedLabel.textColor = UIColor.init(named: "Red")
+			} else if hospital.bed_availability <= 5 {
+				cell.availableBedLabel.textColor = UIColor.init(named: "Yellow")
+			} else {
+				cell.availableBedLabel.textColor = UIColor.init(named: "Green")
+			}
+			
 			return cell
 		} else {
 			return UITableViewCell()

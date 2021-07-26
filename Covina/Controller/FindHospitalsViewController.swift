@@ -41,10 +41,6 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		border.borderColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
 	}
 	
-	func customizeNavbar() {
-		
-	}
-	
 	func addRefreshControl(to scrollView: UIScrollView) {
 		scrollView.refreshControl = UIRefreshControl()
 		scrollView.refreshControl?.addTarget(self, action: #selector(didScrollToRefresh), for: .valueChanged)
