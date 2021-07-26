@@ -168,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="957.97101449275374" y="88.392857142857139"/>
         </scene>
-        <!--Find Hospital-->
+        <!--selectCitiesViewController-->
         <scene sceneID="CAY-ea-L3d">
             <objects>
-                <viewController storyboardIdentifier="selectProvinceViewController" id="XbK-VX-Jp2" customClass="SelectProvinceViewController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="selectCitiesViewController" id="XbK-VX-Jp2" userLabel="selectCitiesViewController" customClass="SelectCitiesViweController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YR5-eC-yRN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,12 +235,85 @@
                     </view>
                     <navigationItem key="navigationItem" title="Find Hospital" largeTitleDisplayMode="never" id="nyL-j9-ueO"/>
                     <connections>
-                        <outlet property="provinceTableViewHeight" destination="c3Q-91-Dtr" id="FjO-5Y-0KI"/>
+                        <outlet property="citiesTableView" destination="0NU-pO-PK6" id="6cf-cn-0of"/>
+                        <outlet property="citiesTableViewHeight" destination="c3Q-91-Dtr" id="gwf-vs-1bj"/>
+                        <outlet property="scrollView" destination="QDM-Br-Cqe" id="Ads-pj-Hnd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LbX-47-RIh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3688" y="88"/>
+        </scene>
+        <!--selectHospitalViewController-->
+        <scene sceneID="sVe-Td-EX0">
+            <objects>
+                <viewController storyboardIdentifier="selectHospitalViewController" id="4yf-ST-Mv2" userLabel="selectHospitalViewController" customClass="SelectHospitalViewController" customModule="Covina" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Ug-6D-eow">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6go-6E-qh6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXg-4h-rjh" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Top Border" translatesAutoresizingMaskIntoConstraints="NO" id="fhJ-ym-PN4">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Province" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ump-0H-QxQ">
+                                                <rect key="frame" x="20" y="40" width="374" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="124" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lqN-Xp-cg8">
+                                                <rect key="frame" x="20" y="77" width="374" height="525"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="525" id="pdk-lB-0Qf"/>
+                                                </constraints>
+                                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="lqN-Xp-cg8" firstAttribute="top" secondItem="ump-0H-QxQ" secondAttribute="bottom" constant="8" id="15P-wK-WxV"/>
+                                            <constraint firstItem="fhJ-ym-PN4" firstAttribute="top" secondItem="uXg-4h-rjh" secondAttribute="top" id="17I-hO-3Eu"/>
+                                            <constraint firstItem="ump-0H-QxQ" firstAttribute="top" secondItem="fhJ-ym-PN4" secondAttribute="bottom" id="JDa-5T-BU2"/>
+                                            <constraint firstItem="ump-0H-QxQ" firstAttribute="leading" secondItem="uXg-4h-rjh" secondAttribute="leading" constant="20" id="UML-Yg-qXS"/>
+                                            <constraint firstItem="lqN-Xp-cg8" firstAttribute="leading" secondItem="uXg-4h-rjh" secondAttribute="leading" constant="20" id="XLd-cX-ek0"/>
+                                            <constraint firstItem="fhJ-ym-PN4" firstAttribute="leading" secondItem="uXg-4h-rjh" secondAttribute="leading" id="g6s-DE-BAY"/>
+                                            <constraint firstAttribute="trailing" secondItem="fhJ-ym-PN4" secondAttribute="trailing" id="puj-h6-SJW"/>
+                                            <constraint firstAttribute="bottom" secondItem="lqN-Xp-cg8" secondAttribute="bottom" id="uR1-yy-RLs"/>
+                                            <constraint firstAttribute="trailing" secondItem="ump-0H-QxQ" secondAttribute="trailing" constant="20" id="wZ1-Ya-MdE"/>
+                                            <constraint firstAttribute="trailing" secondItem="lqN-Xp-cg8" secondAttribute="trailing" constant="20" id="woX-hW-xRs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="uXg-4h-rjh" secondAttribute="trailing" id="0ij-pd-bd7"/>
+                                    <constraint firstItem="uXg-4h-rjh" firstAttribute="top" secondItem="6go-6E-qh6" secondAttribute="top" id="Eur-Fk-fO3"/>
+                                    <constraint firstItem="uXg-4h-rjh" firstAttribute="width" secondItem="6go-6E-qh6" secondAttribute="width" id="K5h-xA-Wuk"/>
+                                    <constraint firstItem="uXg-4h-rjh" firstAttribute="leading" secondItem="6go-6E-qh6" secondAttribute="leading" id="aT4-6G-Rgu"/>
+                                    <constraint firstAttribute="bottom" secondItem="uXg-4h-rjh" secondAttribute="bottom" id="h0t-ok-NE2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ekv-tq-Lzs"/>
+                        <color key="backgroundColor" red="0.80392156859999997" green="0.90196078430000004" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6go-6E-qh6" firstAttribute="trailing" secondItem="Ekv-tq-Lzs" secondAttribute="trailing" id="0Ec-oI-WF5"/>
+                            <constraint firstItem="6go-6E-qh6" firstAttribute="top" secondItem="Ekv-tq-Lzs" secondAttribute="top" id="4fo-Tm-8QI"/>
+                            <constraint firstItem="6go-6E-qh6" firstAttribute="bottom" secondItem="Ekv-tq-Lzs" secondAttribute="bottom" id="HkH-yz-9tc"/>
+                            <constraint firstItem="6go-6E-qh6" firstAttribute="leading" secondItem="Ekv-tq-Lzs" secondAttribute="leading" id="nxN-Yh-h2b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Find Hospital" largeTitleDisplayMode="never" id="fqA-dA-Xv2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uUr-HJ-g8o" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3687" y="905"/>
         </scene>
     </scenes>
     <resources>

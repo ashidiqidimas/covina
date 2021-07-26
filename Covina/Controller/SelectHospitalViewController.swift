@@ -1,5 +1,5 @@
 //
-//  SelectProvinceViewController.swift
+//  SelectHospitalViewController.swift
 //  Covina
 //
 //  Created by Dimas on 26/07/21.
@@ -7,26 +7,14 @@
 
 import UIKit
 
-class SelectProvinceViewController: UIViewController {
+class SelectHospitalViewController: UIViewController {
 
-	@IBOutlet weak var provinceTableViewHeight: NSLayoutConstraint!
-	
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-	
-	override func viewWillAppear(_ animated: Bool) {
-		self.navigationItem.title = "nama provinsi"
-		
-//		self.navigationController?.navigationBar.prefersLargeTitles = false
-	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		provinceTableViewHeight.constant = CGFloat(10)
-	}
-
+    
 
     /*
     // MARK: - Navigation

@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct City {
-	var name: String
-	var id: String
+struct Cities: Codable {
+	var cities = [City]()
 }

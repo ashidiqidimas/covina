@@ -19,7 +19,9 @@
 		2D3F421E26AD847700AF599C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F421C26AD847700AF599C /* CustomTableViewCell.swift */; };
 		2D3F421F26AD847700AF599C /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F421D26AD847700AF599C /* CustomTableViewCell.xib */; };
 		2D3F422126AD87C200AF599C /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422026AD87C200AF599C /* Cities.swift */; };
-		2D3F422826ADD97B00AF599C /* SelectProvinceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422626ADD97B00AF599C /* SelectProvinceViewController.swift */; };
+		2D3F422826ADD97B00AF599C /* SelectCitiesViweController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422626ADD97B00AF599C /* SelectCitiesViweController.swift */; };
+		2D3F422B26AE564900AF599C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422A26AE564900AF599C /* City.swift */; };
+		2D3F422D26AE66F500AF599C /* SelectHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F422C26AE66F500AF599C /* SelectHospitalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +39,9 @@
 		2D3F421C26AD847700AF599C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2D3F421D26AD847700AF599C /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		2D3F422026AD87C200AF599C /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
-		2D3F422626ADD97B00AF599C /* SelectProvinceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectProvinceViewController.swift; sourceTree = "<group>"; };
+		2D3F422626ADD97B00AF599C /* SelectCitiesViweController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCitiesViweController.swift; sourceTree = "<group>"; };
+		2D3F422A26AE564900AF599C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		2D3F422C26AE66F500AF599C /* SelectHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectHospitalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,8 @@
 				2D3F421C26AD847700AF599C /* CustomTableViewCell.swift */,
 				2D3F417826A91C3F00AF599C /* FindHospitalsViewController.swift */,
 				2D3F421226A9DC0800AF599C /* TodayViewController.swift */,
-				2D3F422626ADD97B00AF599C /* SelectProvinceViewController.swift */,
+				2D3F422626ADD97B00AF599C /* SelectCitiesViweController.swift */,
+				2D3F422C26AE66F500AF599C /* SelectHospitalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				2D3F421426AAD4C200AF599C /* Province.swift */,
 				2D3F421726AAD56B00AF599C /* Provinces.swift */,
 				2D3F422026AD87C200AF599C /* Cities.swift */,
+				2D3F422A26AE564900AF599C /* City.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,9 +202,11 @@
 				2D3F421826AAD56B00AF599C /* Provinces.swift in Sources */,
 				2D3F417926A91C3F00AF599C /* FindHospitalsViewController.swift in Sources */,
 				2D3F421E26AD847700AF599C /* CustomTableViewCell.swift in Sources */,
-				2D3F422826ADD97B00AF599C /* SelectProvinceViewController.swift in Sources */,
+				2D3F422826ADD97B00AF599C /* SelectCitiesViweController.swift in Sources */,
+				2D3F422B26AE564900AF599C /* City.swift in Sources */,
 				2D3F417526A91C3F00AF599C /* AppDelegate.swift in Sources */,
 				2D3F417726A91C3F00AF599C /* SceneDelegate.swift in Sources */,
+				2D3F422D26AE66F500AF599C /* SelectHospitalViewController.swift in Sources */,
 				2D3F421526AAD4C200AF599C /* Province.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

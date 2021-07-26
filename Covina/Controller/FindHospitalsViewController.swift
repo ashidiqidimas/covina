@@ -64,7 +64,6 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		if let jsonProvinces = try? decoder.decode(Provinces.self, from: json) {
 			provinces = jsonProvinces.provinces
 			provinces.sort{$0.name < $1.name}
-//			print(provinces.count)
 		}
 	}
 	
@@ -103,12 +102,16 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 	// MARK: - UITableViewDelegate Methods
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-		print("clicked")
+//		print("clicked")
 		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let selectProvinceView = storyboard.instantiateViewController(withIdentifier: "selectProvinceViewController")
+		let selectProvinceView = storyboard.instantiateViewController(withIdentifier: "selectCitiesViewController") as? SelectCitiesViweController
 		
-		self.navigationController?.pushViewController(selectProvinceView, animated: true)
+		let province = provinces[indexPath.row]
+		selectProvinceView?.provinceName = province.name
+		selectProvinceView?.provinceId = province.id
+		
+		self.navigationController?.pushViewController(selectProvinceView!, animated: true) // TODO: - nanti ubah ke error page
 	}
 }
 
