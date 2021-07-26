@@ -17,7 +17,6 @@ class SelectCitiesViweController: UIViewController, UITableViewDataSource, UITab
 	var provinceName = ""
 	var provinceId = ""
 	
-	
 	override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -35,7 +34,9 @@ class SelectCitiesViweController: UIViewController, UITableViewDataSource, UITab
 	
 	override func viewDidAppear(_ animated: Bool) {
 		getCities()
-		citiesTableViewHeight.constant = CGFloat((Double(cities.count) * 124.0) + 8)
+		if cities.count > 4 {
+			citiesTableViewHeight.constant = CGFloat((Double(cities.count) * 124.0) + 8)
+		}
 		
 	}
 	

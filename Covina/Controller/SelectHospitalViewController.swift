@@ -35,7 +35,9 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	override func viewDidAppear(_ animated: Bool) {
 		getHospitals()
 		print("b")
-		hospitalsTableViewHeight.constant = CGFloat((Double(hospitals.count) * 124.0) + 8)
+		if hospitals.count > 7 {
+			hospitalsTableViewHeight.constant = CGFloat((Double(hospitals.count) * 124.0) + 8)
+		}
 	}
 	
 	func addRefreshControl(to scrollView: UIScrollView) {
