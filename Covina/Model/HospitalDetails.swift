@@ -8,5 +8,5 @@
 import Foundation
 
 struct HospitalDetails: Codable {
-	var data = [HospitalDetail]()
+	var data: HospitalDetail
 }

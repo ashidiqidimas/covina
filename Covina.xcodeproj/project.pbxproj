@@ -31,6 +31,11 @@
 		2D3F423B26AEB05E00AF599C /* BedDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F423A26AEB05E00AF599C /* BedDetail.swift */; };
 		2D3F423D26AEB0C700AF599C /* BedStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F423C26AEB0C700AF599C /* BedStats.swift */; };
 		2D3F423F26AEB1CD00AF599C /* HospitalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F423E26AEB1CD00AF599C /* HospitalDetail.swift */; };
+		2D3F424426AEE73F00AF599C /* BedDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F424226AEE73E00AF599C /* BedDetailTableViewCell.swift */; };
+		2D3F424526AEE73F00AF599C /* bedDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D3F424326AEE73E00AF599C /* bedDetailTableViewCell.xib */; };
+		2D3F424726AEF26000AF599C /* MapsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F424626AEF25F00AF599C /* MapsData.swift */; };
+		2D3F424926AEF2E000AF599C /* Maps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F424826AEF2E000AF599C /* Maps.swift */; };
+		2D3F424B26AF068A00AF599C /* Indonesia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3F424A26AF068A00AF599C /* Indonesia.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +65,11 @@
 		2D3F423A26AEB05E00AF599C /* BedDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedDetail.swift; sourceTree = "<group>"; };
 		2D3F423C26AEB0C700AF599C /* BedStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedStats.swift; sourceTree = "<group>"; };
 		2D3F423E26AEB1CD00AF599C /* HospitalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalDetail.swift; sourceTree = "<group>"; };
+		2D3F424226AEE73E00AF599C /* BedDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedDetailTableViewCell.swift; sourceTree = "<group>"; };
+		2D3F424326AEE73E00AF599C /* bedDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = bedDetailTableViewCell.xib; sourceTree = "<group>"; };
+		2D3F424626AEF25F00AF599C /* MapsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsData.swift; sourceTree = "<group>"; };
+		2D3F424826AEF2E000AF599C /* Maps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maps.swift; sourceTree = "<group>"; };
+		2D3F424A26AF068A00AF599C /* Indonesia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Indonesia.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +124,7 @@
 		2D3F41CE26A97AF900AF599C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2D3F424226AEE73E00AF599C /* BedDetailTableViewCell.swift */,
 				2D3F421C26AD847700AF599C /* CustomTableViewCell.swift */,
 				2D3F422E26AE8AF900AF599C /* HospitalTableViewCell.swift */,
 				2D3F417826A91C3F00AF599C /* FindHospitalsViewController.swift */,
@@ -132,6 +143,7 @@
 				2D3F417F26A91C4100AF599C /* LaunchScreen.storyboard */,
 				2D3F417A26A91C3F00AF599C /* Main.storyboard */,
 				2D3F422F26AE8AF900AF599C /* HospitalTableViewCell.xib */,
+				2D3F424326AEE73E00AF599C /* bedDetailTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +161,9 @@
 				2D3F423E26AEB1CD00AF599C /* HospitalDetail.swift */,
 				2D3F423A26AEB05E00AF599C /* BedDetail.swift */,
 				2D3F423C26AEB0C700AF599C /* BedStats.swift */,
+				2D3F424626AEF25F00AF599C /* MapsData.swift */,
+				2D3F424826AEF2E000AF599C /* Maps.swift */,
+				2D3F424A26AF068A00AF599C /* Indonesia.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +229,7 @@
 				2D3F421B26AD64E300AF599C /* Assets.xcassets in Resources */,
 				2D3F421F26AD847700AF599C /* CustomTableViewCell.xib in Resources */,
 				2D3F423126AE8AF900AF599C /* HospitalTableViewCell.xib in Resources */,
+				2D3F424526AEE73F00AF599C /* bedDetailTableViewCell.xib in Resources */,
 				2D3F417C26A91C3F00AF599C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,12 +242,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D3F422126AD87C200AF599C /* Cities.swift in Sources */,
+				2D3F424B26AF068A00AF599C /* Indonesia.swift in Sources */,
 				2D3F423326AE900100AF599C /* Hospital.swift in Sources */,
 				2D3F421326A9DC0800AF599C /* TodayViewController.swift in Sources */,
+				2D3F424726AEF26000AF599C /* MapsData.swift in Sources */,
 				2D3F423726AEAE4A00AF599C /* HospitalDetailsViewController.swift in Sources */,
 				2D3F421826AAD56B00AF599C /* Provinces.swift in Sources */,
 				2D3F423D26AEB0C700AF599C /* BedStats.swift in Sources */,
 				2D3F417926A91C3F00AF599C /* FindHospitalsViewController.swift in Sources */,
+				2D3F424926AEF2E000AF599C /* Maps.swift in Sources */,
 				2D3F421E26AD847700AF599C /* CustomTableViewCell.swift in Sources */,
 				2D3F423026AE8AF900AF599C /* HospitalTableViewCell.swift in Sources */,
 				2D3F423526AE909000AF599C /* Hospitals.swift in Sources */,
@@ -240,6 +259,7 @@
 				2D3F422B26AE564900AF599C /* City.swift in Sources */,
 				2D3F423F26AEB1CD00AF599C /* HospitalDetail.swift in Sources */,
 				2D3F417526A91C3F00AF599C /* AppDelegate.swift in Sources */,
+				2D3F424426AEE73F00AF599C /* BedDetailTableViewCell.swift in Sources */,
 				2D3F417726A91C3F00AF599C /* SceneDelegate.swift in Sources */,
 				2D3F422D26AE66F500AF599C /* SelectHospitalViewController.swift in Sources */,
 				2D3F423B26AEB05E00AF599C /* BedDetail.swift in Sources */,

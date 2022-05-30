@@ -46,12 +46,8 @@ class SelectCitiesViweController: UIViewController, UITableViewDataSource, UITab
 	}
 	
 	@objc func didScrollToRefresh() {
-		// Update your content…
 		getCities()
-		//		print(provinces)
 		
-		
-		// Dismiss the refresh control.
 		DispatchQueue.main.async {
 			self.scrollView.refreshControl?.endRefreshing()
 		}
@@ -73,8 +69,6 @@ class SelectCitiesViweController: UIViewController, UITableViewDataSource, UITab
 			if let data = try? Data(contentsOf: url) {
 				parseCities(json: data)
 				citiesTableView.reloadData()
-//				print(cities)
-//				print(urlString)
 			}
 		}
 	}
@@ -100,21 +94,15 @@ class SelectCitiesViweController: UIViewController, UITableViewDataSource, UITab
 	// MARK: - UITableViewDelegate Methods
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-//				print("clicked")
-		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let selectHospitalView = storyboard.instantiateViewController(withIdentifier: "selectHospitalViewController") as? SelectHospitalViewController
-		
-//		let province = provinces[indexPath.row]
-//		selectProvinceView?.provinceName = province.name
-//		selectProvinceView?.provinceId = province.id
-		
+
 		let city = cities[indexPath.row]
 		selectHospitalView?.provinceId = provinceId
 		selectHospitalView?.cityId = city.id
 		selectHospitalView?.cityName = city.name
 		
-		self.navigationController?.pushViewController(selectHospitalView!, animated: true) // TODO: - nanti ubah ke error page
-//		print("udah")
+		self.navigationController?.pushViewController(selectHospitalView!, animated: true)
+
 	}
 }

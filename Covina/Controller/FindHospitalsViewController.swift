@@ -28,9 +28,10 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 			customizeTabbar(for: thisTabBar)
 		}
 		self.navigationController?.navigationBar.shadowImage = UIImage()
+
 	}
 	
-	override func viewDidAppear(_ animated: Bool) {
+	 override func viewDidAppear(_ animated: Bool) {
 		getProvince()
 		provinceTableViewHeight.constant = CGFloat((Double(provinces.count) * 124.0) + 8)
 	}
@@ -47,12 +48,8 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 	}
 	
 	@objc func didScrollToRefresh() {
-		// Update your content…
 		getProvince()
-//		print(provinces)
-		
-		
-		// Dismiss the refresh control.
+
 		DispatchQueue.main.async {
 			self.scrollView.refreshControl?.endRefreshing()
 		}
@@ -103,8 +100,6 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 	// MARK: - UITableViewDelegate Methods
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-//		print("clicked")
-		
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let selectProvinceView = storyboard.instantiateViewController(withIdentifier: "selectCitiesViewController") as? SelectCitiesViweController
 		
@@ -112,7 +107,7 @@ class FindHospitalsViewController: UIViewController, UITableViewDataSource, UITa
 		selectProvinceView?.provinceName = province.name
 		selectProvinceView?.provinceId = province.id
 		
-		self.navigationController?.pushViewController(selectProvinceView!, animated: true) // TODO: - nanti ubah ke error page
+		self.navigationController?.pushViewController(selectProvinceView!, animated: true)
 	}
 }
 

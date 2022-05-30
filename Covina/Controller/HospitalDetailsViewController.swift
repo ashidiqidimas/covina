@@ -6,42 +6,83 @@
 //
 
 import UIKit
+import SafariServices
 
-class HospitalDetailsViewController: UIViewController {
+class HospitalDetailsViewController: UIViewController, UITableViewDataSource {
 
 	@IBOutlet weak var phoneLabel: UILabel!
 	@IBOutlet weak var addressLabel: UILabel!
-	@IBOutlet weak var IGDKhususLabel: UILabel!
-	@IBOutlet weak var NICUKhususLabel: UILabel!
-	@IBOutlet weak var isolasiTanpaLabel: UILabel!
-	@IBOutlet weak var isolasiTekananLabel: UILabel!
-	@IBOutlet weak var ICUTanpaTekananVentilatorLabel: UILabel!
-	@IBOutlet weak var ICUTanpaTekananDenganVentilator: UILabel!
-	@IBOutlet weak var ICUTekananTanpaVentilator: UILabel!
-	@IBOutlet weak var ICUTekananDenganVentilator: UILabel!
+	@IBOutlet weak var bedTableView: UITableView!
 	
 	var hospitalId = ""
 	var hospitalName = ""
-	var hospitalDetails = HospitalDetails()
+	var hospital: HospitalDetail?
+	var mapsString = ""
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
-
-		self.navigationController?.navigationBar.prefersLargeTitles = true
+		
+		preventLargeTitleCollapsing()
+		
 		self.navigationItem.title = hospitalName
+		bedTableView.dataSource = self
+		bedTableView.register(UINib(nibName: "bedDetailTableViewCell", bundle: nil), forCellReuseIdentifier: "bedDetailTableViewCell")
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
 		getHospitalDetails()
 	}
 	
+	@IBAction func mapsButtonPressed(_ sender: UIButton) {
+		getMapsUrl()
+		
+		let mapsVc = SFSafariViewController(url: URL(string: mapsString)!)
+		present(mapsVc, animated: true, completion: nil)
+	}
+	
+	private func preventLargeTitleCollapsing() {
+		let dummyView = UIView()
+		view.addSubview(dummyView)
+		view.sendSubviewToBack(dummyView)
+	}
+
+	
 	// MARK: - Fetching Data
-	func parseHospitals(json: Data) {
+	
+	func parseMapsUrl(json: Data) {
 		let decoder = JSONDecoder()
 		
-		if let jsonHospitals = try? decoder.decode(HospitalDetails.self, from: json) {
-			hospitalDetails.data = jsonHospitals.data
-			print(hospitalDetails.data)
+		do {
+			let jsonMaps = try decoder.decode(Maps.self, from: json)
+			mapsString = jsonMaps.data.gmaps
+		
+		} catch {
+			print("Data loading fails with error:", error)
+		}
+	}
+	
+	func getMapsUrl() {
+		let urlString = "https://rs-bed-covid-api.vercel.app/api/get-hospital-map?hospitalid=\(hospitalId)"
+		if let url = URL(string: urlString) {
+			if let data = try? Data(contentsOf: url) {
+				parseMapsUrl(json: data)
+			}
+		}
+	}
+	
+	func parseHospital(json: Data) {
+		let decoder = JSONDecoder()
+		
+		do {
+			let jsonHospital = try decoder.decode(HospitalDetails.self, from: json)
+			hospital = jsonHospital.data
+			phoneLabel.text = hospital?.phone
+			addressLabel.text = hospital?.address
+			
+			bedTableView.reloadData()
+			
+		} catch {
+			print("Data loading fails with error:", error)
 		}
 	}
 	
@@ -49,26 +90,28 @@ class HospitalDetailsViewController: UIViewController {
 		let urlString = "https://rs-bed-covid-api.vercel.app/api/get-bed-detail?hospitalid=\(hospitalId)&type=1"
 		if let url = URL(string: urlString) {
 			if let data = try? Data(contentsOf: url) {
-				parseHospitals(json: data)
-
-				// Insert data to labels
-				let hospital = hospitalDetails.data.first{$0.id == hospitalId}
-				phoneLabel.text = hospital?.phone
-				addressLabel.text = hospital?.address
-				print(hospitalDetails)
+				parseHospital(json: data)
 			}
 		}
 	}
-    
+	
+	// MARK: - UITableDataSource
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return hospital?.bedDetail.count ?? 0
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-    /*
-    // MARK: - Navigation
+		if let cell = tableView.dequeueReusableCell(withIdentifier: "bedDetailTableViewCell", for: indexPath) as? BedDetailTableViewCell {
+			
+			cell.titleLabel.text = hospital!.bedDetail[indexPath.row].stats.title
+			cell.bedLeft.text = "\(hospital!.bedDetail[indexPath.row].stats.bed_available)"
+			cell.lastUpdated.text = hospital!.bedDetail[indexPath.row].time
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+			return cell
+		} else {
+			return UITableViewCell()
+		}
+	}
+ 
 }

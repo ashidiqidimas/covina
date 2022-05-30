@@ -9,21 +9,39 @@ import UIKit
 
 class TodayViewController: UIViewController {
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+	@IBOutlet weak var casesLabel: UILabel!
+	@IBOutlet weak var recoveredLabel: UILabel!
+	@IBOutlet weak var deathsLabel: UILabel!
+	
+	var indonesia: Indonesia?
+	
+	override func viewDidAppear(_ animated: Bool) {
+		updateLabel()
+	}
+	
+	// MARK: - Fetching Data
+	func parseCovidStats(json: Data) {
+		let decoder = JSONDecoder()
 		
+		do {
+			let jsonStats = try decoder.decode([Indonesia].self, from: json)
+			indonesia = jsonStats.first
+		} catch {
+			print("Data loading fails with error:", error)
+		}
+	}
+	
+	func updateLabel() {
+		let urlString = "https://api.kawalcorona.com/indonesia/"
+		if let url = URL(string: urlString) {
+			if let data = try? Data(contentsOf: url) {
+				parseCovidStats(json: data)
+				self.casesLabel.text = indonesia?.positif
+				self.recoveredLabel.text = indonesia?.sembuh
+				deathsLabel.text = indonesia?.meninggal
+			}
+		}
+	}
 
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
 }

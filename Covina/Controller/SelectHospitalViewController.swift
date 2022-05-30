@@ -45,7 +45,7 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 	}
 	
 	@objc func didScrollToRefresh() {
-		// Update your content…
+
 		getHospitals()
 
 		DispatchQueue.main.async {
@@ -110,15 +110,11 @@ class SelectHospitalViewController: UIViewController, UITableViewDataSource, UIT
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let selectedHospital = storyboard.instantiateViewController(withIdentifier: "hospitalDetailsViewController") as? HospitalDetailsViewController
 
-		//		let province = provinces[indexPath.row]
-		//		selectProvinceView?.provinceName = province.name
-		//		selectProvinceView?.provinceId = province.id
-
 		let hospital = hospitals[indexPath.row]
 		selectedHospital?.hospitalId = hospital.id
 		selectedHospital?.hospitalName = hospital.name
 		
-		self.navigationController?.pushViewController(selectedHospital!, animated: true) // TODO: - nanti ubah ke error page
+		self.navigationController?.pushViewController(selectedHospital!, animated: true)
 	}
 
 }

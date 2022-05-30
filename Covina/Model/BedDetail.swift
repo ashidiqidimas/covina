@@ -8,5 +8,6 @@
 import Foundation
 
 struct BedDetail: Codable {
-	var stats = [BedStats]()
+	var time: String
+	var stats: BedStats
 }
